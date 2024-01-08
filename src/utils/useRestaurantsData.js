@@ -11,7 +11,7 @@ const useRestaurantsData = () => {
   const getRestaurantsData = async () => {
     const data = await fetch(RESTAURANTS_API);
     const json = await data.json();
-    setRestaurantsData(json);
+    setRestaurantsData(json.data);
   };
 
   return restaurantsData;
