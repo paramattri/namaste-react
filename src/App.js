@@ -7,6 +7,7 @@ import Offers from "./components/Offers";
 import Help from "./components/Help";
 import Cart from "./components/Cart";
 import RestaurantMenu from "./components/RestaurantMenu";
+import Search from "./components/Search";
 
 const AppLayout = () => {
   return (
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Body />,
+      },
+      {
+        path: "/search",
+        element: <Search />,
       },
       {
         path: "/offers",

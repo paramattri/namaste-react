@@ -8,7 +8,9 @@ const Header = () => {
         <img className="w-20 cursor-pointer" src={LOGO_URL} alt="Swiggy Logo" />
       </Link>
       <ul className="flex items-center">
-        <li className="mx-7">Search</li>
+        <li className="mx-7">
+          <Link to="/search">Search</Link>
+        </li>
         <li className="mx-7">
           <Link to="/offers">Offers</Link>
         </li>
