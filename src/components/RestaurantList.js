@@ -9,7 +9,7 @@ const RestaurantList = () => {
   if (restaurantsData.length === 0) return <Shimmer />;
 
   const restaurantList =
-    restaurantsData?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+    restaurantsData?.cards[4]?.card?.card?.gridElements?.infoWithStyle
       ?.restaurants;
 
   return (

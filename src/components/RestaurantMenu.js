@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import Shimmer from "./Shimmer";
 import RestaurantMenuItemCard from "./RestaurantMenuItemCard";
+import React from "react";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -46,13 +47,10 @@ const RestaurantMenu = () => {
       <div>
         <p className="text-lg font-bold mb-6">{`Recommended (${itemCards.length})`}</p>
         {itemCards.map((item) => (
-          <>
-            <RestaurantMenuItemCard
-              key={item?.card?.info?.id}
-              itemInfo={item?.card?.info}
-            />
+          <React.Fragment key={item?.card?.info?.id}>
+            <RestaurantMenuItemCard itemInfo={item?.card?.info} />
             <hr className="mb-5" />
-          </>
+          </React.Fragment>
         ))}
       </div>
     </div>
