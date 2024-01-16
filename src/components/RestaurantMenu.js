@@ -3,6 +3,7 @@ import useRestaurantMenu from "../utils/useRestaurantMenu";
 import Shimmer from "./Shimmer";
 import RestaurantMenuItemCard from "./RestaurantMenuItemCard";
 import React from "react";
+import RestaurantMenuAccordion from "./RestaurantMenuAccordion";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -23,8 +24,17 @@ const RestaurantMenu = () => {
     restaurantMenuData?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
       ?.card?.card;
 
-  console.log(name);
-  console.log(itemCards);
+  const filteredItemCategoryCards =
+    restaurantMenuData?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (card) =>
+        card?.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+
+  console.log(filteredItemCategoryCards);
+  console.log("restaurant menu data", restaurantMenuData);
+  // console.log(name);
+  // console.log(itemCards);
   return (
     <div className="px-36 mt-16 mx-48">
       <div className="flex justify-between items-center mb-[18px]">
@@ -45,12 +55,11 @@ const RestaurantMenu = () => {
       </div>
       <hr className="border-dashed mb-[18px]" />
       <div>
-        <p className="text-lg font-bold mb-6">{`Recommended (${itemCards.length})`}</p>
-        {itemCards.map((item) => (
-          <React.Fragment key={item?.card?.info?.id}>
-            <RestaurantMenuItemCard itemInfo={item?.card?.info} />
-            <hr className="mb-5" />
-          </React.Fragment>
+        {filteredItemCategoryCards.map((card) => (
+          <RestaurantMenuAccordion
+            key={card?.card?.card?.title}
+            menuCategoryData={card?.card?.card}
+          />
         ))}
       </div>
     </div>
