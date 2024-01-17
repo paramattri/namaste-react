@@ -18,7 +18,10 @@ const RestaurantMenuAccordion = ({ menuCategoryData }) => {
       </div>
       {showCategoryData &&
         menuCategoryData?.itemCards.map((itemCard) => (
-          <RestaurantMenuItemCard itemInfo={itemCard?.card?.info} />
+          <RestaurantMenuItemCard
+            key={itemCard?.card?.info?.id}
+            itemInfo={itemCard?.card?.info}
+          />
         ))}
     </div>
   );

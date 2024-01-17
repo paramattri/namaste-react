@@ -1,14 +1,12 @@
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import Shimmer from "./Shimmer";
-import RestaurantMenuItemCard from "./RestaurantMenuItemCard";
 import React from "react";
 import RestaurantMenuAccordion from "./RestaurantMenuAccordion";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const restaurantMenuData = useRestaurantMenu(resId);
-  // console.log(restaurantMenuData);
 
   if (restaurantMenuData.length === 0)
     return (
@@ -31,10 +29,6 @@ const RestaurantMenu = () => {
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
 
-  console.log(filteredItemCategoryCards);
-  console.log("restaurant menu data", restaurantMenuData);
-  // console.log(name);
-  // console.log(itemCards);
   return (
     <div className="px-36 mt-16 mx-48">
       <div className="flex justify-between items-center mb-[18px]">

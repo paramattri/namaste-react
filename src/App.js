@@ -8,13 +8,17 @@ import Help from "./components/Help";
 import Cart from "./components/Cart";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Search from "./components/Search";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 const AppLayout = () => {
   return (
-    <div>
-      <Header />
-      <Outlet />
-    </div>
+    <Provider store={appStore}>
+      <div>
+        <Header />
+        <Outlet />
+      </div>
+    </Provider>
   );
 };
 
@@ -30,14 +34,6 @@ const router = createBrowserRouter([
       {
         path: "/search",
         element: <Search />,
-      },
-      {
-        path: "/offers",
-        element: <Offers />,
-      },
-      {
-        path: "/help",
-        element: <Help />,
       },
       {
         path: "/cart",
